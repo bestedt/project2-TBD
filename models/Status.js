@@ -3,6 +3,14 @@ const sequelize = require('../config/connection');
 
 class Status extends Model {}
 
+/**
+ * ticket status
+ *  created,
+ *  doing,
+ *  done,
+ *  closed,
+ */
+
 Status.init(
     {
         id: {

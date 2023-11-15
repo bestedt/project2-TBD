@@ -40,7 +40,11 @@ Ticket.init(
                 key: 'id',
             },
         },
-        create_time: {
+        doing_time: {
+            type: DataTypes.DATE,
+            allowNull: false,
+        },
+        done_time: {
             type: DataTypes.DATE,
             allowNull: false,
         },
@@ -51,7 +55,7 @@ Ticket.init(
     },
     {
         sequelize,
-        timestamps: false,
+        timestamps: true,
         freezeTableName: true,
         underscored: true,
         modelName: 'ticket',
