@@ -3,6 +3,6 @@ const ticketRoutes = require('./ticketRoutes');
 const userRoutes = require('./userRoutes');
 
 router.use('/tickets', ticketRoutes);
-router.use('/login', userRoutes);
+router.use('/users', userRoutes);
 
 module.exports = router;
