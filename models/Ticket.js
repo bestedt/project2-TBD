@@ -16,7 +16,7 @@ Ticket.init(
             allowNull: false,
         },
         content: {
-            type: DataTyeps.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         status_id: {

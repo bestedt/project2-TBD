@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const { Ticket, User } = require('../../models');
 
-//get all the ticket
+// Get all the tickets
 router.get('/', async (req, res) => {
     try {
         const ticketsData = await Ticket.findAll({
-            include: [{model: User}]
+            include: [{ model: User }]
         });
         res.status(200).json(ticketsData);
     } catch (err) {
@@ -13,11 +13,11 @@ router.get('/', async (req, res) => {
     }
 });
 
-//get ticket by id
+// Get ticket by id
 router.get('/:id', async (req, res) => {
     try {
-        const ticketData = await Ticket.findByPk(req,params.id, {
-            include: [{model: User}]
+        const ticketData = await Ticket.findByPk(req.params.id, {
+            include: [{ model: User }]
         });
         res.status(200).json(ticketData);
     } catch (err) {
@@ -25,15 +25,14 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-//get ticket by status
-router.get('/:statusId', async (req, res) => {
+// Get tickets by status
+router.get('/status/:statusId', async (req, res) => {
     try {
         const ticketsData = await Ticket.findAll({
             where: {
                 status_id: req.params.statusId,
             },
-        }, {
-            include: [{model: User}]
+            include: [{ model: User }]
         });
         const tickets = ticketsData.map((ticket) => ticket.get({ plain: true }));
         res.status(200).json(tickets);
@@ -42,15 +41,15 @@ router.get('/:statusId', async (req, res) => {
     }
 });
 
-// post, creat new ticket
+// Post, create a new ticket
 router.post('/', (req, res) => {
     Ticket.create(req.body)
-    .then(newTicket=>{
-        res.json(newTicket);
-    })
-    .catch(err=>{
-        res.json(err);
-    });
+        .then(newTicket => {
+            res.json(newTicket);
+        })
+        .catch(err => {
+            res.json(err);
+        });
 });
 
 // TODO: put, update ticket status
@@ -118,5 +117,5 @@ router.put('/:id', (req, res) => {
     
 });
 
-
+module.exports = router;
 //no need delete ticket, will keep all the tickets history data in db
