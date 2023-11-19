@@ -1,6 +1,6 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
-const routes = require('./routes/api');
+const routes = require('./routes');
 const app = express();
 const path = require('path');
 // Set up Handlebars as the view engine
