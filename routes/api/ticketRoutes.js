@@ -52,7 +52,7 @@ router.post('/', (req, res) => {
         });
 });
 
-// TODO: put, update ticket status
+// put, update ticket status
 router.put('/:id', (req, res) => {
     if (req.body.statusId === '2') {
         // update ticket from created => doing
