@@ -1,0 +1,14 @@
+{{#if is_superintendent}}
+<!--not show button-->
+{{else}}
+<button>create ticket</button>
+{{/if}}
+
+<!--
+    show tickets
+-->
+<div class="container">
+    {{#each tickets as |ticket|}}
+    {{> ticket-card}}
+    {{/each}}
+</div>

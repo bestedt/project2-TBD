@@ -2,7 +2,29 @@
     {
         "title": "test ticket1",
         "content": "please help to fix the window problem in room 1",
-        "status_id": 1, 
-        "creator_id": 1
+        "status": "created", 
+        "creator_id": 3
+    },
+    {
+        "title": "test ticket2",
+        "content": "please help to fix the window problem in room 2",
+        "status": "doing", 
+        "creator_id": 3,
+        "doner_id": 1
+    },
+    {
+        "title": "test ticket3",
+        "content": "please help to fix the window problem in room 1",
+        "status": "done", 
+        "creator_id": 3,
+        "doner_id": 1
+    },
+    {
+        "title": "test ticket4",
+        "content": "please help to fix the window problem in room 1",
+        "status": "closed", 
+        "creator_id": 3,
+        "doner_id": 1
     }
+
 ]

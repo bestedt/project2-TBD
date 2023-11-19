@@ -1,20 +1,40 @@
+const path = require('path');
 const express = require('express');
+const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./routes');
+const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const helpers = require('./utils/helpers');
+
 const app = express();
-const path = require('path');
-// Set up Handlebars as the view engine
-app.engine('handlebars', exphbs());
+const PORT = process.env.PORT || 3001;
+
+const hbs = exphbs.create({helpers});
+
+const sess = {
+    secret: 'secret key',
+    cookie: {
+      maxAge: 900000, // for the test purpose
+    },
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+      db: sequelize
+    })
+  };
+
+app.use(session(sess));
+
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-// Serve static files (like images)
-app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(routes);
-// Start the server
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
 });
