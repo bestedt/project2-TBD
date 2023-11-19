@@ -106,3 +106,31 @@ To https://git.heroku.com/atms.git
  * [new branch]      main -> main
 JI-MBP:purpleturtle-Appartment-Management zhangji$ 
 ```
+## Heroku JawsDB
+```
+
+JI-MBP:purpleturtle-Appartment-Management zhangji$ heroku addons:create jawsdb
+Creating jawsdb on ⬢ atms... free
+Resource is being provisioned.
+jawsdb-colorful-90786 is being created in the background. The app will restart when complete...
+Use heroku addons:info jawsdb-colorful-90786 to check creation progress
+Use heroku addons:docs jawsdb to view documentation
+JI-MBP:purpleturtle-Appartment-Management zhangji$ 
+
+JI-MBP:purpleturtle-Appartment-Management zhangji$ heroku config:get JAWSDB_URL
+mysql://k0y7eazmr4hqbvi8:vd1ytqr4lwx1j7fr@ro2padgkirvcf55m.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/bxvs2c4trvdafk7e
+JI-MBP:purpleturtle-Appartment-Management zhangji$ 
+```
+
+## If you want to config local Mysql app link to db
+
+### Heroku JawsDB username
+`k0y7eazmr4hqbvi8`
+### Heroku JawsDB password
+`vd1ytqr4lwx1j7fr`
+### Heroku JawsDB hostname
+`ro2padgkirvcf55m.cbetxkdyhwsb.us-east-1.rds.amazonaws.com`
+### Heroku JawsDB PORT
+`3306`
+### Heroku JawsDB default DB schema
+`bxvs2c4trvdafk7e`
