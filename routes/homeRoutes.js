@@ -4,7 +4,9 @@ const router = express.Router();
 
 // Home route
 router.get('/', (req, res) => {
-  res.render('homepage');
+  res.render('homepage',{
+    // loggedIn: req.session.loggedIn,
+  });
 });
 
 // sign in 
@@ -20,7 +22,7 @@ router.get('/dashboard', (req, res) => {
       .then(blogs=>{
           res.render('myBlogs', {
               blogs,
-              logged_in: req.session.logged_in,   // session login data
+              // logged_in: req.session.logged_in,   // session login data
           });
       })
       .catch(error => {

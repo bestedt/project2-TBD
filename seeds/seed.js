@@ -7,9 +7,11 @@ const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
   await User.bulkCreate(userData, {
-    individualHooks: true,
+    // individualHooks: true,
     returning: true,
   });
+
+  console.log('\n----- DATABASE SYNCED -----\n');
 
   process.exit(0);
 };
