@@ -1,0 +1,36 @@
+<h2>Create Account</h2>
+<br>
+<!-- Create Account Form includes values as username, usertype, email, and password to go with our already set up user model-->
+<form class="form create-account-form" id="createAccountForm">
+  <div class="form-group">
+    {{!-- user type is a dropdown menu with 3 options: tenant, superintendent, and apartment manager --}}
+    <label for="usertype-create">User Type:</label>
+    <select class="form-input" id="usertype-create" name="usertype" required>
+      <option value="tenant">Tenant</option>
+      <option value="superintendent">Superintendent</option>
+      <option value="aptmanager">Apartment Manager</option>
+    </select> <!-- Close the select element here -->
+  </div>
+  <div class="form-group">
+    {{!-- username entry --}}
+    <label for="username-create">User Name:</label>
+    <input class="form-input" type="text" id="username-create" name="username" required />
+  </div>
+  <div class="form-group">
+    {{!-- email entry --}}
+    <label for="email-create">Email:</label>
+    <input class="form-input" type="text" id="email-create" name="email" required />
+  </div>
+  <div class="form-group">
+    {{!-- password entry  --}}
+    <label for="password-create">Password:</label>
+    <input class="form-input" type="password" id="password-create" name="password" required />
+  </div>
+  <div class="form-group">
+    {{!-- create account button styled to go with the overall estetic --}}
+    <button class="btn btn-outline-dark" type="button" id="createAccountBtn">Create Account</button>
+  </div>
+</form>
+
+
+<script src="/js/createAccount.js"></script>

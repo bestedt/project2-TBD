@@ -12,6 +12,10 @@ router.get('/login',(req, res) => {
   res.render('login');
 });
 
+// create account
+router.get('/createaccount',(req, res) => {
+  res.render('createaccount');
+});
 // dashboard
 router.get('/dashboard', (req, res) => {
   const userId = req.session.user_id;
