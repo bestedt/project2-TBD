@@ -37,6 +37,12 @@ router.get('/login',(req, res) => {
   res.render('login');
 });
 
+
+
+// create account
+router.get('/createaccount',(req, res) => {
+  res.render('createaccount');
+});
 // /ticket/:id
 router.get('ticket/:id', withAuth, (req, res) => {
   res.render('ticket', {
