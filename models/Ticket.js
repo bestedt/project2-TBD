@@ -19,12 +19,11 @@ Ticket.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        status_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'status',
-                key: 'id',
-            },
+        status: {
+            type: DataTypes.STRING,
+            validate: {
+                isIn: [['created', 'doing', 'done', 'closed']]
+              },
         },
         creator_id: {
             type: DataTypes.INTEGER,
@@ -42,15 +41,15 @@ Ticket.init(
         },
         doing_time: {
             type: DataTypes.DATE,
-            allowNull: false,
+            allowNull: true,
         },
         done_time: {
             type: DataTypes.DATE,
-            allowNull: false,
+            allowNull: true,
         },
         close_time: {
             type: DataTypes.DATE,
-            allowNull: false,
+            allowNull: true,
         }
     },
     {
