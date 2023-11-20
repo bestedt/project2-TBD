@@ -3,9 +3,17 @@
         <h5 class="card-title">{{title}}</h5>
     </a>
     <p class="card-text">{{content}}</p>
-    <div><span>Created by {{creator.username}}</span>,  Last edit at <span>{{updatedAt}}</span></div>
+    <div><span>Created by {{creator.username}}</span>,  Last edit at <span>{{format_time updatedAt}}</span></div>
     {{#if doner}}
-    <div><span>doing by {{doner.username}}</span></div>
+        {{#if (eq status 'doing')}}
+            <div><span>doing by {{doner.username}}</span></div>
+        {{/if}}
+        {{#if (eq status 'done')}}
+            <div><span>Done at {{format_time done_time}}</span></div>
+        {{/if}}
+        {{#if (eq status 'closed')}}
+            <div><span>Closed at {{format_time close_time}}</span></div>
+        {{/if}}
     {{/if}}
   
 </section>

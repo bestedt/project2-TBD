@@ -21,7 +21,7 @@ router.get('/', (req, res) => { // need withAuth, remove for dev
     fetch(path)
     .then(response=>response.json())
     .then(tickets=>{
-      console.log(tickets)
+      //console.log(tickets)
       res.render('homepage', 
       {
         tickets,
@@ -32,24 +32,39 @@ router.get('/', (req, res) => { // need withAuth, remove for dev
     });
 });
 
+// single ticke page
+router.get('/ticket/:id', (req, res) => {
+  const is_manager = true; // for the dev purpose, should be req.session.is_manager,
+  const is_superintendent = false;  // for the dev purpose, should be req.session.is_superintendent,
+  const user_id = "1"; // for the dev purpose, should be  req.session.user_id;
+  const path = SERVER + `/api/tickets/${req.params.id}`
+  fetch(path)
+  .then(response=>response.json())
+  .then(ticket=>{
+    res.render('ticket', {
+      ticket,
+      is_manager,
+      is_superintendent,
+      user_id,
+    });
+  });
+});
+
 // sign in 
 router.get('/login',(req, res) => {
   res.render('login');
 });
 
 
-
 // create account
 router.get('/createaccount',(req, res) => {
   res.render('createaccount');
 });
-// /ticket/:id
-router.get('ticket/:id', withAuth, (req, res) => {
-  res.render('ticket', {
-    is_manager: true, // for the dev purpose, should be req.session.is_manager,
-    is_superintendent: false, // for the dev purpose, should be req.session.is_superintendent,
-    user_id: "1", // for the dev purpose, should be  req.session.user_id;
-  });
+
+
+// /newTicket
+router.get('/newTicket', (req, res) => { // withAuth
+  res.render('newticket');
 });
 
 module.exports = router;
