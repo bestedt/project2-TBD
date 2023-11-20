@@ -16,7 +16,7 @@
                 <!-- Navigation tabs on the left -->
                 <div class="col-auto">
                     <ul class="navbar-nav d-flex">
-                        {{#if isLoggedIn}}
+                        {{#if LoggedIn}}
                             <li class="nav-item">
                                 <a href="/" class="nav-link text-white">Home</a>
                             </li>
@@ -37,8 +37,8 @@
                 <!-- Log In, Log Out, and Create Account Buttons on the Far Right -->
                 <div class="col-auto">
                     {{!-- if logged the logout button will be in the top right, if not the log in and create account will be there  --}}
-                    {{#if isLoggedIn}}
-                        <a href="/logout" class="btn btn-outline-light">Log Out</a>
+                    {{#if loggedIn}}
+                        <button class="btn btn-outline-light" id="logout">logout</button>
                     {{else}}
                         <a href="/login" class="btn btn-outline-light">Log In</a>
                         <a href="/createaccount" class="btn btn-outline-light">Create Account</a>
@@ -67,6 +67,9 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>
