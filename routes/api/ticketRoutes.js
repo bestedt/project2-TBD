@@ -31,8 +31,8 @@ router.get('/superintendent/:id', async (req, res) => {
                 ]
             },
             include: [
-                { model: User }, 
-                { model: User }]
+                { model: User, as: 'creator' }, 
+                { model: User, as: 'doner' }]
         });
         const tickets = ticketsData.map((ticket) => ticket.get({ plain: true }));
         res.status(200).json(tickets);
@@ -48,8 +48,8 @@ router.get('/tenant/:id', async (req, res) => {
         const ticketsData = await Ticket.findAll({
             where: {creator_id: user_id},
             include: [
-                { model: User }, 
-                { model: User }]
+                { model: User, as: 'creator' }, 
+                { model: User, as: 'doner' }]
         });
         const tickets = ticketsData.map((ticket) => ticket.get({ plain: true }));
         res.status(200).json(tickets);
@@ -63,8 +63,8 @@ router.get('/:id', async (req, res) => {
     try {
         const ticketData = await Ticket.findByPk(req.params.id, {
             include: [
-                { model: User }, 
-                { model: User }]
+                { model: User, as: 'creator' }, 
+                { model: User, as: 'doner' }]
         });
         res.status(200).json(ticketData);
     } catch (err) {
@@ -80,8 +80,8 @@ router.get('/status/:statusId', async (req, res) => {
                 status_id: req.params.statusId,
             },
             include: [
-                { model: User }, 
-                { model: User }]
+                { model: User, as: 'creator' }, 
+                { model: User, as: 'doner' }]
         });
         const tickets = ticketsData.map((ticket) => ticket.get({ plain: true }));
         res.status(200).json(tickets);

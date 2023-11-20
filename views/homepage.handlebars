@@ -1,14 +1,17 @@
-{{#if is_superintendent}}
-<!--not show button-->
-{{else}}
-<button>create ticket</button>
-{{/if}}
+
 
 <!--
     show tickets
 -->
 <div class="container">
+    {{#if is_superintendent}}
+        <!--not show button-->
+    {{else}}
+        <button class="btn btn-primary" id="createBtn">create ticket</button>
+    {{/if}}
     {{#each tickets as |ticket|}}
     {{> ticket-card}}
     {{/each}}
 </div>
+
+<script src="/js/createTicket.js"></script>

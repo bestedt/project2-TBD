@@ -4,6 +4,11 @@ module.exports = {
         const date = convert_datetime_str_to_date(datetime)
         return date.toLocaleString();
     },
+
+    eq: (a, b) => {
+        if (a === b) return true;
+        return false;
+    }
 }
 
 function convert_datetime_str_to_date(str) {
