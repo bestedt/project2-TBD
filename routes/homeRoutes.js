@@ -18,6 +18,7 @@ router.get('/', (req, res) => { // need withAuth, remove for dev
   } else {
     path = SERVER + `/api/tickets/tenant/${user_id}`
   }
+    
     fetch(path)
     .then(response=>response.json())
     .then(tickets=>{
@@ -28,6 +29,7 @@ router.get('/', (req, res) => { // need withAuth, remove for dev
         is_manager,
         is_superintendent,
         user_id,
+        loggedIn: req.session.loggedIn,
       });
     });
 });
@@ -52,7 +54,7 @@ router.get('/ticket/:id', (req, res) => {
 
 // sign in 
 router.get('/login',(req, res) => {
-  res.render('login');
+   res.render('login');
 });
 
 
