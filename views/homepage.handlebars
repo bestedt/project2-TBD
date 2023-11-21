@@ -1,0 +1,37 @@
+
+
+<!--show chart-->
+
+{{#if is_manager}}
+    <div class="container m-3 p-3 ">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <div class="card m-3 p-3 d-flex flex-row align-items-center justify-content-around" style="height: 300px;">
+            <div class="d-flex flex-column justify-content-center">
+                <h5>Current Service Quality <span id="serviceQualityPercent"></span> </h5>
+                <h6>Service Level Agreement: 7*9 ND</h6>
+            </div>
+            
+            <canvas id="performanceChart" aria-label="performance chart" role="img">
+                <p>performance chart</p>
+            </canvas>
+        </div>
+        <script src="/js/performanceChart.js"></script>
+    </div>
+{{/if}}
+
+<!--  show tickets  -->
+<div class="container m-3 p-3">
+    {{#if is_superintendent}}
+        <!--not show button-->
+    {{else}}
+        <section class="card m-3 p-3 d-flex justify-content-center">
+            <button class="btn btn-outline-primary" id="createBtn">create ticket</button>
+        </section>
+    {{/if}}
+    {{#each tickets as |ticket|}}
+    {{> ticket-card}}
+    {{/each}}
+</div>
+
+<script src="/js/createTicket.js"></script>
+<script src="/js/showTicketCard.js"></script>

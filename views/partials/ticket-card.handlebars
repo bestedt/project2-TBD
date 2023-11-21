@@ -1,0 +1,28 @@
+<section class="card ticket-card m-3 p-3" data-ticket-status={{status}}>
+    
+    
+    <div class="card-header">
+        <p class="fs-6 fw-lighter">Created by {{creator.username}} @{{format_time createdAt}},</p> 
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{title}}</h5>
+        <p class="card-text fs-4 fw-bold">{{content}}</p>
+        <a href="/ticket/{{id}}" class="btn btn-outline-light">More Details ...</a>
+    </div>
+    <div class="card-footer bg-transparent border-light fs-6 fw-lighter">
+         
+        <!--<p class="fs-6 fw-lighter">Last edit at {{format_time updatedAt}} ,</p>-->
+        {{#if doner}}
+            {{#if (eq status 'doing')}}
+                <p class="fs-6 fw-lighter">doing by {{doner.username}}</p>
+            {{/if}}
+            {{#if (eq status 'done')}}
+                <p class="fs-6 fw-lighter">Done at {{format_time done_time}}</p>
+            {{/if}}
+            {{#if (eq status 'closed')}}
+                <p class="fs-6 fw-lighter">Closed at {{format_time close_time}}</p>
+            {{/if}}
+        {{/if}}
+    </div>
+  
+</section>

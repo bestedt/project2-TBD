@@ -1,0 +1,67 @@
+<!--
+    ticke info
+-->
+<section class="card m-3 p-3" data-ticket-id="{{ticket.id}}">
+    <h5 class="card-title">{{ticket.title}}</h5>
+    <p class="card-text">{{ticket.content}}</p>
+    <div><span>Created by {{ticket.creator.username}}</span>,  Last edit at <span>{{format_time ticket.updatedAt}}</span></div>
+    {{#if ticket.doner}}
+        {{#if (eq ticket.status 'doing')}}
+            <div><span>doing by {{ticket.doner.username}}</span></div>
+        {{/if}}
+        {{#if (eq ticket.status 'done')}}
+            <div><span>Done at {{format_time ticket.done_time}}</span></div>
+        {{/if}}
+        {{#if (eq ticket.status 'closed')}}
+            <div><span>Closed at {{format_time ticket.close_time}}</span></div>
+        {{/if}}
+    {{/if}}
+</section>
+
+
+{{#if is_manager}}
+<!--
+    if it is manager, 
+        show accept ticket function, if the ticket is created
+        show done ticket function if the ticket doner is the manager
+        show close tickets function
+-->
+    {{#if (eq ticket.status 'created')}}
+        <button class="btn btn-primary" id="acceptBtn">accept</button>
+    {{/if}}
+
+    {{#if (eq ticket.status 'doing')}}
+        {{#if (eq ticket.doner.id user_id)}}
+            <button class="btn btn-primary" id="doneBtn">done</button>
+        {{/if}}
+    {{/if}}
+
+    {{#if (eq ticket.status 'done')}}
+        <button class="btn btn-primary" id="closeBtn">close</button>
+    {{/if}}
+{{else}}
+    {{#if is_superintendent}}
+        <!--
+            if it is superintendent, 
+                show accept ticket button, if the ticket is created
+                show done ticket button, if the ticket is doing by self
+        -->
+        {{#if (eq ticket.status 'created')}}
+            <button class="btn btn-primary" id="acceptBtn">accept</button>
+        {{/if}}
+        {{#if (eq ticket.status 'doing')}}
+            {{#if (eq ticket.doner.id user_id)}}
+                <button class="btn btn-primary" id="doneBtn">done</button>
+            {{/if}}
+        {{/if}}
+    {{else}}
+    <!-- tenant -->
+    <!--
+        if it is tenant, 
+            show close tickets function, if the ticket created by self and is done.
+    -->
+        {{#if (eq ticket.status 'done')}}
+            <button class="btn btn-primary" id="closeBtn">close</button>
+        {{/if}}
+    {{/if}}
+{{/if}}

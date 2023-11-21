@@ -8,13 +8,14 @@
     {
         "user_type": "aptmanagerr",
         "username": "tyler",
-        "email": " ty_bested@hotmail.com",
+        "email": "ty_bested@hotmail.com",
         "password": "tyler@123456"
     },
     {
         "user_type": "anthony",
         "username": "tenant",
-        "email": " anthony.dswg@gmail.com",
+         "username": "anthony",
+        "email": "anthony.dswg@gmail.com",
         "password": "anthony@123456"
     }
   ]

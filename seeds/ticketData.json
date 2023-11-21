@@ -2,7 +2,89 @@
     {
         "title": "test ticket1",
         "content": "please help to fix the window problem in room 1",
-        "status_id": 1, 
-        "creator_id": 1
+        "status": "created", 
+        "creator_id": 3
+    },
+    {
+        "title": "test ticket2",
+        "content": "please help to fix the window problem in room 2",
+        "status": "doing", 
+        "creator_id": 3,
+        "doner_id": 1,
+        "doing_time": "2023-11-19 21:54:23"
+    },
+    {
+        "title": "test ticket3",
+        "content": "please help to fix the window problem in room 1",
+        "status": "done", 
+        "creator_id": 3,
+        "doner_id": 1,
+        "doing_time": "2023-11-19 21:54:23",
+        "done_time": "2023-11-19 22:54:23"
+    },
+    {
+        "title": "test ticket4",
+        "content": "please help to fix the window problem in room 1",
+        "status": "closed", 
+        "creator_id": 3,
+        "doner_id": 1,
+        "doing_time": "2023-11-19 21:54:23",
+        "done_time": "2023-11-19 22:54:23",
+        "close_time": "2023-11-19 23:54:23"
+    },
+    {
+        "title": "test ticket5",
+        "content": "please help to fix the window problem in room 1",
+        "status": "done", 
+        "creator_id": 3,
+        "doner_id": 1,
+        "doing_time": "2023-11-01 21:54:23",
+        "done_time": "2023-11-02 22:54:23"
+    },
+    {
+        "title": "test ticket6",
+        "content": "please help to fix the window problem in room 1",
+        "status": "done", 
+        "creator_id": 3,
+        "doner_id": 1,
+        "doing_time": "2023-11-9 21:54:23",
+        "done_time": "2023-11-9 22:54:23"
+    },
+    {
+        "title": "test ticket7",
+        "content": "please help to fix the window problem in room 1",
+        "status": "done", 
+        "creator_id": 3,
+        "doner_id": 1,
+        "doing_time": "2023-11-2 21:54:23",
+        "done_time": "2023-11-3 22:54:23"
+    },
+    {
+        "title": "test ticket8",
+        "content": "please help to fix the window problem in room 1",
+        "status": "done", 
+        "creator_id": 3,
+        "doner_id": 1,
+        "doing_time": "2023-11-19 21:54:23",
+        "done_time": "2023-11-19 22:54:23"
+    },
+    {
+        "title": "test ticket9",
+        "content": "please help to fix the window problem in room 1",
+        "status": "done", 
+        "creator_id": 3,
+        "doner_id": 1,
+        "doing_time": "2023-11-19 21:54:23",
+        "done_time": "2023-11-19 22:54:23"
+    },
+    {
+        "title": "test ticket10",
+        "content": "please help to fix the window problem in room 1",
+        "status": "done", 
+        "creator_id": 3,
+        "doner_id": 1,
+        "doing_time": "2023-11-19 21:54:23",
+        "done_time": "2023-11-19 22:54:23"
     }
+
 ]

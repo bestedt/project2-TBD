@@ -1,13 +1,58 @@
 const router = require('express').Router();
 const { Ticket, User } = require('../../models');
+const { Op } = require("sequelize");
 
-// Get all the tickets
-router.get('/', async (req, res) => {
+// /api/tickets
+
+// for manager to get all the tickets
+router.get('/manager', async (req, res) => {
     try {
         const ticketsData = await Ticket.findAll({
-            include: [{ model: User }]
+            include: [
+                { model: User, as: 'creator' }, 
+                { model: User, as: 'doner' }]
         });
-        res.status(200).json(ticketsData);
+        const tickets = ticketsData.map((ticket) => ticket.get({ plain: true }));
+        res.status(200).json(tickets);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// for superintendent tickets list
+router.get('/superintendent/:id', async (req, res) => {
+    try {
+        const user_id = req.params.id;
+        const ticketsData = await Ticket.findAll({
+            where: {
+                [Op.or]: [
+                  {doner_id: user_id},
+                  {status_id: "1"}, // created tickets
+                ]
+            },
+            include: [
+                { model: User, as: 'creator' }, 
+                { model: User, as: 'doner' }]
+        });
+        const tickets = ticketsData.map((ticket) => ticket.get({ plain: true }));
+        res.status(200).json(tickets);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// for tenant tickets list
+router.get('/tenant/:id', async (req, res) => {
+    try {
+        const user_id = req.params.id;
+        const ticketsData = await Ticket.findAll({
+            where: {creator_id: user_id},
+            include: [
+                { model: User, as: 'creator' }, 
+                { model: User, as: 'doner' }]
+        });
+        const tickets = ticketsData.map((ticket) => ticket.get({ plain: true }));
+        res.status(200).json(tickets);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -17,7 +62,9 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const ticketData = await Ticket.findByPk(req.params.id, {
-            include: [{ model: User }]
+            include: [
+                { model: User, as: 'creator' }, 
+                { model: User, as: 'doner' }]
         });
         res.status(200).json(ticketData);
     } catch (err) {
@@ -32,7 +79,9 @@ router.get('/status/:statusId', async (req, res) => {
             where: {
                 status_id: req.params.statusId,
             },
-            include: [{ model: User }]
+            include: [
+                { model: User, as: 'creator' }, 
+                { model: User, as: 'doner' }]
         });
         const tickets = ticketsData.map((ticket) => ticket.get({ plain: true }));
         res.status(200).json(tickets);
