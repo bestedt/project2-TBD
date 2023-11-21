@@ -6,6 +6,16 @@ class User extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
+
+  isManager() {
+    if (this.user_type === 'aptmanager') return true;
+    return false;
+  }
+
+  isSuperintendent() {
+    if (this.user_type === 'superintendent') return true;
+    return false;
+  }
 }
 
 User.init(
