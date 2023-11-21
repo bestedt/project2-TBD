@@ -12,8 +12,9 @@
         "password": "tyler@123456"
     },
     {
-        "user_type": "tenant",
-        "username": "anthony",
+        "user_type": "anthony",
+        "username": "tenant",
+         "username": "anthony",
         "email": "anthony.dswg@gmail.com",
         "password": "anthony@123456"
     }
