@@ -85,6 +85,113 @@
         "doner_id": 1,
         "doing_time": "2023-11-19 21:54:23",
         "done_time": "2023-11-19 22:54:23"
+    },
+
+   {
+        "title": "test ticket11",
+         "content": "please help my toilet is overflowing",
+        "status": "created", 
+         "creator_id": 4
+   },
+   {
+        "title": "test ticket12",
+        "content": "Help needed heater is not functioning",
+        "status": "doing", 
+        "creator_id": 5,
+        "doner_id": 1,
+        "doing_time": "2023-11-20 21:54:23"
+    },
+    {
+        "title": "test ticket13",
+        "content": "Broken kitchen faucet",
+        "status": "doing", 
+        "creator_id": 6,
+        "doner_id": 1,
+        "doing_time": "2023-11-20 20:54:23"
+    },
+    {
+        "title": "test ticket14",
+        "content": "Broken toilet seat",
+        "status": "doing", 
+        "creator_id": 6,
+        "doner_id": 1,
+        "doing_time": "2023-11-20 20:54:23"
+    },
+    {
+        "title": "test ticket15",
+        "content": "Mold on my living room walls",
+        "status": "done", 
+        "creator_id": 3,
+        "doner_id": 1,
+        "doing_time": "2023-11-08 17:54:23",
+        "done_time": "2023-11-10 15:54:23"
+    },
+    {
+        "title": "test ticket16",
+        "content": "Stove is not working",
+        "status": "done", 
+        "creator_id": 6,
+        "doner_id": 1,
+        "doing_time": "2023-11-4 14:54:23",
+        "done_time": "2023-11-5 09:54:23"
+    },
+    {
+        "title": "test ticket17",
+        "content": "Light Bulbs in the living room needs to be replaced",
+        "status": "created", 
+        "creator_id": 6    
+    },
+    {
+        "title": "test ticket18",
+        "content": "My front door lock is not functioning",
+        "status": "created", 
+        "creator_id": 3
+    },
+    {
+        "title": "test ticket9",
+        "content": "Master room power outlet not working",
+        "status": "created", 
+        "creator_id": 6
+    },
+    {
+        "title": "test ticket20",
+        "content": "AC is not cooling",
+        "status": "done", 
+        "creator_id": 4,
+        "doner_id": 1,
+        "doing_time": "2023-11-20 18:50:23",
+        "done_time": "2023-11-20 20:54:23"
+    },
+    {
+        "title": "test ticket21",
+        "content": "Master bedroom is not heating",
+        "status": "doing", 
+        "creator_id": 5,
+        "doner_id": 1,
+        "doing_time": "2023-11-19 23:50:23"
+    },
+    {
+        "title": "test ticket22",
+        "content": "Washroom Shower is not working",
+        "status": "created", 
+        "creator_id": 4
+    },
+    {
+        "title": "test ticket23",
+        "content": "Balcony sliding door is not sliding",
+        "status": "done", 
+        "creator_id": 4,
+        "doner_id": 1,
+        "doing_time": "2023-11-14 14:54:23",
+        "done_time": "2023-11-15 09:54:23"
+    },
+    {
+        "title": "test ticket24",
+        "content": "Living room light fixtures not working",
+        "status": "doing", 
+        "creator_id": 2,
+        "doner_id": 1,
+        "doing_time": "2023-11-20 21:50:23"
     }
 
 ]
