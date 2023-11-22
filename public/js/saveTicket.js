@@ -1,6 +1,7 @@
 async function createBtnHandler(event) {
     event.preventDefault();
-    const title = document.querySelector('#title').value.trim();
+    const roomno = document.querySelector('#roomno').value.trim();
+    const title = document.querySelector('#title').value.trim() + ` at room ${roomno}`;
     const content = document.querySelector('#content').value.trim();
 
     if (title && content) {
@@ -13,7 +14,6 @@ async function createBtnHandler(event) {
             if (response.ok) {
                 document.location.replace('/');
               } else {
-                console.log(response)
                 alert(response.status)
               }
             } catch (err) {

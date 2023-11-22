@@ -1,7 +1,6 @@
 fetch(`/api/data/serviceQuality`)
 .then(response=>response.json())
 .then(serviceData=>{ 
-    console.log(serviceData)
     const meet = serviceData.meet;
     const miss = serviceData.total - serviceData.meet;
 

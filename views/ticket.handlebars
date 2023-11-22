@@ -1,24 +1,30 @@
 <!--
     ticke info
 -->
-<section class="card m-3 p-3" data-ticket-id="{{ticket.id}}">
-    <h5 class="card-title">{{ticket.title}}</h5>
-    <p class="card-text">{{ticket.content}}</p>
-    <div><span>Created by {{ticket.creator.username}}</span>,  Last edit at <span>{{format_time ticket.updatedAt}}</span></div>
-    {{#if ticket.doner}}
-        {{#if (eq ticket.status 'doing')}}
-            <div><span>Doing by {{ticket.doner.username}}</span></div>
+<section class="card m-3 p-3" data-ticket-id="{{ticket.id}}" data-user-id="{{user_id}}">
+    <div class="card-header">
+        <p class="fs-6 fw-lighter">Created by {{ticket.creator.username}} @{{format_time ticket.createdAt}},</p> 
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{ticket.title}}</h5>
+        <p class="card-text fs-4 fw-bold">{{ticket.content}}</p>
+    </div>
+    <div class="card-footer bg-transparent border-light fs-6 fw-lighter">
+        {{#if ticket.doner}}
+            {{#if (eq ticket.status 'doing')}}
+                <p class="fs-6 fw-lighter">doing by {{ticket.doner.username}}</p>
+            {{/if}}
+            {{#if (eq ticket.status 'done')}}
+                <p class="fs-6 fw-lighter">Done at {{format_time ticket.done_time}}</p>
+            {{/if}}
+            {{#if (eq ticket.status 'closed')}}
+                <p class="fs-6 fw-lighter">Closed at {{format_time ticket.close_time}}</p>
+            {{/if}}
         {{/if}}
-        {{#if (eq ticket.status 'done')}}
-            <div><span>Done at {{format_time ticket.done_time}}</span></div>
-        {{/if}}
-        {{#if (eq ticket.status 'closed')}}
-            <div><span>Closed at {{format_time ticket.close_time}}</span></div>
-        {{/if}}
-    {{/if}}
+    </div>
 </section>
 
-
+<section class="card m-3 p-3">
 {{#if is_manager}}
 <!--
     if it is manager, 
@@ -61,7 +67,10 @@
             show close tickets function, if the ticket created by self and is done.
     -->
         {{#if (eq ticket.status 'done')}}
-            <button class="btn btn-primary" id="closeBtn">close</button>
+            <button class="btn btn-outline-dark" id="closeBtn">close</button>
         {{/if}}
     {{/if}}
 {{/if}}
+</section>
+
+<script src="/js/ticketBtnHandler.js"></script>

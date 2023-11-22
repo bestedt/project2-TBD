@@ -1,7 +1,6 @@
 const cards = document.getElementsByClassName("ticket-card");
 let backgroundColor;
 for (let c of cards) {
-    console.log(c.dataset.ticketStatus);
     switch(c.dataset.ticketStatus) {
         case "created": 
             backgroundColor = 'text-bg-primary';

@@ -36,13 +36,12 @@ router.get('/serviceQuality', async (req, res) => {
                 return t;
             }
         }).length;
-        const percent = meet/total*100;
+        const percent = (meet/total*100).toFixed(2);
         const result = {
             "total": total,
             "meet": meet,
             "percent": percent
         }
-        console.log(result)
         res.status(200).json(result);
     } catch (err) {
         console.error(err)
