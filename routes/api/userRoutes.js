@@ -3,17 +3,10 @@ const { User } = require('../../models');
 
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
-  console.log("*********************** Iam here************" + email+password);
   try {
-    // const { email, password } = req.body;
-    // const userData = await User.findOne({ where: { email: req.body.email } });
-    console.log(email);
+   
     const userData = await User.findOne({ where: { email:email } });
-
-    console.log("*********************** Iam here toooooooooo************");
-    console.log(userData);
     if (!userData) {
-      console.log("*********************** Iam here anthooooo************");
       res
         .status(400)
         .json({ message: 'Incorrect username, please try again' });
@@ -23,22 +16,24 @@ router.post('/login', async (req, res) => {
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      console.log("*********************** Iam here pwwwwwwwwww************");
       res
         .status(400)
         .json({ message: 'Incorrect  password, please try again' });
       return;
     }
 
-    req.session.save(() => {
-      // req.session.user_id = userData.id;
-      
+    req.session.save(async () => {
+      req.session.is_manager = await userData.isManager();
+      req.session.is_superintendent = await userData.isSuperintendent();
+      req.session.user_id = userData.id;
       req.session.loggedIn = true;
       res.json({ message: 'You are now logged in!' });
       req.session.cookie
-      res.render('homepage', 
-      {        
+      res.render('homepage', {        
         loggedIn: req.session.loggedIn,
+        is_manager: req.session.is_manager,
+        is_superintendent: req.session.is_superintendent,
+        user_id: req.session.user_id,
       });
 
      });

@@ -6,10 +6,10 @@ const router = express.Router();
 const SERVER = `http://localhost:${process.env.PORT||3001}`
 
 // Home route
-router.get('/', (req, res) => { // need withAuth, remove for dev
-  const is_manager = true; // for the dev purpose, should be req.session.is_manager,
-  const is_superintendent = false;  // for the dev purpose, should be req.session.is_superintendent,
-  const user_id = "1"; // for the dev purpose, should be  req.session.user_id;
+router.get('/', withAuth, (req, res) => { 
+  const is_manager = req.session.is_manager;
+  const is_superintendent = req.session.is_superintendent;
+  const user_id = req.session.user_id;
   let path;
   if (is_manager) {
     path = SERVER + `/api/tickets/manager`
@@ -35,10 +35,10 @@ router.get('/', (req, res) => { // need withAuth, remove for dev
 });
 
 // single ticke page
-router.get('/ticket/:id', (req, res) => {
-  const is_manager = true; // for the dev purpose, should be req.session.is_manager,
-  const is_superintendent = false;  // for the dev purpose, should be req.session.is_superintendent,
-  const user_id = "1"; // for the dev purpose, should be  req.session.user_id;
+router.get('/ticket/:id', withAuth, (req, res) => {
+  const is_manager = req.session.is_manager;
+  const is_superintendent = req.session.is_superintendent;
+  const user_id = req.session.user_id;
   const path = SERVER + `/api/tickets/${req.params.id}`
   fetch(path)
   .then(response=>response.json())
@@ -65,7 +65,7 @@ router.get('/createaccount',(req, res) => {
 
 
 // /newTicket
-router.get('/newTicket', (req, res) => { // withAuth
+router.get('/newTicket', withAuth, (req, res) => { // withAuth
   res.render('newticket');
 });
 
