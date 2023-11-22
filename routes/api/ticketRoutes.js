@@ -103,10 +103,10 @@ router.post('/', (req, res) => {
 
 // put, update ticket status
 router.put('/:id', (req, res) => {
-    if (req.body.statusId === '2') {
+    if (req.body.status === 'doing') {
         // update ticket from created => doing
         Ticket.update({
-            status_id: req.body.statusId,
+            status: req.body.status,
             doing_time: new Date(),
             doner_id: req.body.user_id,
         },
@@ -124,10 +124,10 @@ router.put('/:id', (req, res) => {
         });
     }
 
-    if (req.body.statusId === '3') {
+    if (req.body.status === 'done') {
         // update ticket from doing => done
         Ticket.update({
-            status_id: req.body.statusId,
+            status: req.body.status,
             done_time: new Date(),
         },
         {
@@ -144,10 +144,10 @@ router.put('/:id', (req, res) => {
         });
     }
 
-    if (req.body.statusId === '4') {
+    if (req.body.status === 'closed') {
         // update ticket from done => close
         Ticket.update({
-            status_id: req.body.statusId,
+            status: req.body.status,
             close_time: new Date(),
         },
         {

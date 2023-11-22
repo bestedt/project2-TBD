@@ -2,31 +2,31 @@
 <br>
 <!-- Create Account Form includes values as username, usertype, email, and password to go with our already set up user model-->
 <form class="form create-account-form" id="createAccountForm">
-  <div class="form-group">
+  <div class="form-group mb-3">
     {{!-- user type is a dropdown menu with 3 options: tenant, superintendent, and apartment manager --}}
-    <label for="usertype-create">User Type:</label>
-    <select class="form-input" id="usertype-create" name="usertype" required>
+    <label for="usertype-create" class="form-label">User Type</label>
+    <select class="form-input form-control" id="usertype-create" name="usertype" required>
       <option value="tenant">Tenant</option>
       <option value="superintendent">Superintendent</option>
       <option value="aptmanager">Apartment Manager</option>
     </select> <!-- Close the select element here -->
   </div>
-  <div class="form-group">
+  <div class="form-group mb-3">
     {{!-- username entry --}}
-    <label for="username-create">User Name:</label>
-    <input class="form-input" type="text" id="username-create" name="username" required />
+    <label for="username-create" class="form-label">User Name</label>
+    <input class="form-input form-control" type="text" id="username-create" name="username" required />
   </div>
-  <div class="form-group">
+  <div class="form-group mb-3">
     {{!-- email entry --}}
-    <label for="email-create">Email:</label>
-    <input class="form-input" type="text" id="email-create" name="email" required />
+    <label for="email-create" class="form-label">Email</label>
+    <input class="form-input form-control" type="text" id="email-create" name="email" required />
   </div>
-  <div class="form-group">
+  <div class="form-group mb-3">
     {{!-- password entry  --}}
-    <label for="password-create">Password:</label>
-    <input class="form-input" type="password" id="password-create" name="password" required />
+    <label for="password-create" class="form-label">Password</label>
+    <input class="form-input form-control" type="password" id="password-create" name="password" required />
   </div>
-  <div class="form-group">
+  <div class="form-group mb-3">
     {{!-- create account button styled to go with the overall estetic --}}
     <button class="btn btn-outline-dark" type="button" id="createAccountBtn">Create Account</button>
   </div>

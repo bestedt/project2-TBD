@@ -10,6 +10,7 @@ router.get('/', withAuth, (req, res) => {
   const is_manager = req.session.is_manager;
   const is_superintendent = req.session.is_superintendent;
   const user_id = req.session.user_id;
+  const username = req.session.username;
   let path;
   if (is_manager) {
     path = SERVER + `/api/tickets/manager`
@@ -29,6 +30,7 @@ router.get('/', withAuth, (req, res) => {
         is_manager,
         is_superintendent,
         user_id,
+        username,
         loggedIn: req.session.loggedIn,
       });
     });
@@ -39,6 +41,7 @@ router.get('/ticket/:id', withAuth, (req, res) => {
   const is_manager = req.session.is_manager;
   const is_superintendent = req.session.is_superintendent;
   const user_id = req.session.user_id;
+  const username = req.session.username;
   const path = SERVER + `/api/tickets/${req.params.id}`
   fetch(path)
   .then(response=>response.json())
@@ -48,6 +51,8 @@ router.get('/ticket/:id', withAuth, (req, res) => {
       is_manager,
       is_superintendent,
       user_id,
+      username,
+      loggedIn: req.session.loggedIn,
     });
   });
 });
@@ -65,8 +70,12 @@ router.get('/createaccount',(req, res) => {
 
 
 // /newTicket
-router.get('/newTicket', withAuth, (req, res) => { // withAuth
-  res.render('newticket');
+router.get('/newTicket', withAuth, (req, res) => {
+  const username = req.session.username;
+  res.render('newticket', {
+    loggedIn: req.session.loggedIn,
+    username,
+  });
 });
 
 module.exports = router;

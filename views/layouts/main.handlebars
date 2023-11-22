@@ -38,7 +38,10 @@
                 <div class="col-auto">
                     {{!-- if logged the logout button will be in the top right, if not the log in and create account will be there  --}}
                     {{#if loggedIn}}
-                        <button class="btn btn-outline-light" id="logout">logout</button>
+                    <div class="d-flex flex-row justify-content-between align-items-center">
+                        <span class="me-1 text-light">Current User: </span><span class="text-light fw-bold me-3"> {{username}} </span>
+                        <button class="m-3 btn btn-outline-light" id="logout">logout</button>
+                    </div>
                     {{else}}
                         <a href="/login" class="btn btn-outline-light">Log In</a>
                         <a href="/createaccount" class="btn btn-outline-light">Create Account</a>
