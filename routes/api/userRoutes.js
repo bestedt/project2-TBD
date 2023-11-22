@@ -9,9 +9,7 @@ const { Op } = require('sequelize');
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
   try {
-    // const { email, password } = req.body;
-    // const userData = await User.findOne({ where: { email: req.body.email } });
-    console.log(email);
+   
     const userData = await User.findOne({ where: { email:email } });
     if (!userData) {
       res

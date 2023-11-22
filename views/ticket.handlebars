@@ -33,17 +33,17 @@
         show close tickets function
 -->
     {{#if (eq ticket.status 'created')}}
-        <button class="btn btn-outline-dark" id="acceptBtn">accept</button>
+        <button class="btn btn-outline-dark" id="acceptBtn">Accept</button>
     {{/if}}
 
     {{#if (eq ticket.status 'doing')}}
         {{#if (eq ticket.doner.id user_id)}}
-            <button class="btn btn-outline-dark" id="doneBtn">done</button>
+            <button class="btn btn-outline-dark" id="doneBtn">Done</button>
         {{/if}}
     {{/if}}
 
     {{#if (eq ticket.status 'done')}}
-        <button class="btn btn-outline-dark" id="closeBtn">close</button>
+        <button class="btn btn-outline-dark" id="closeBtn">Close</button>
     {{/if}}
 {{else}}
     {{#if is_superintendent}}
@@ -53,11 +53,11 @@
                 show done ticket button, if the ticket is doing by self
         -->
         {{#if (eq ticket.status 'created')}}
-            <button class="btn btn-outline-dark" id="acceptBtn">accept</button>
+            <button class="btn btn-outline-dark" id="acceptBtn">Accept</button>
         {{/if}}
         {{#if (eq ticket.status 'doing')}}
             {{#if (eq ticket.doner.id user_id)}}
-                <button class="btn btn-outline-dark" id="doneBtn">done</button>
+                <button class="btn btn-outline-dark" id="doneBtn">Done</button>
             {{/if}}
         {{/if}}
     {{else}}

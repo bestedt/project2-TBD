@@ -1,21 +1,38 @@
 [
-    {
-      "user_type": "superintendent",
-      "username": "jimmy",
-      "email": "zhangji.80@gmail.com",
+  {
+    "user_type": "superintendent",
+    "username": "jimmy",
+    "email": "zhangji.80@gmail.com",
+    "password": "jimmy@123456"
+  },
+  {
+      "user_type": "aptmanager",
+      "username": "tyler",
+      "email": "ty_bested@hotmail.com",
+      "password": "tyler@123456"
+  },
+  {
+      "user_type": "tenant",
+      "username": "anthony",
+      "email": "anthony.dswg@gmail.com",
+      "password": "anthony@123456"
+  },
+  {
+      "user_type": "tenant",
+      "username": "jacob",
+      "email": "jacob@gmail.com",
       "password": "jimmy@123456"
-    },
-    {
-        "user_type": "aptmanager",
-        "username": "tyler",
-        "email": "ty_bested@hotmail.com",
-        "password": "tyler@123456"
-    },
-    {
-        "user_type": "tenant",
-         "username": "anthony",
-        "email": "anthony.dswg@gmail.com",
-        "password": "anthony@123456"
-    }
-  ]
-  
+  },
+  {
+      "user_type": "tenant",
+      "username": "gustavo",
+      "email": "gustavo@hotmail.com",
+      "password": "tyler@123456"
+  },
+  {
+      "user_type": "tenant",
+      "username": "sonja",
+      "email": "sonja@gmail.com",
+      "password": "sonja@123456"
+  }
+]
