@@ -12,7 +12,7 @@
             </div>
             
             <canvas id="performanceChart" aria-label="performance chart" role="img">
-                <p>performance chart</p>
+                <p>Performance Chart</p>
             </canvas>
         </div>
         <script src="/js/performanceChart.js"></script>
@@ -25,13 +25,13 @@
         <!--not show button-->
     {{else}}
         <section class="card m-3 p-3 d-flex justify-content-center">
-            <button class="btn btn-outline-primary" id="createBtn">create ticket</button>
+            <button class="btn btn-outline-dark" id="createBtn">Create Ticket</button>
         </section>
     {{/if}}
     {{#each tickets as |ticket|}}
     {{> ticket-card}}
     {{/each}}
 </div>
-
+<br>
 <script src="/js/createTicket.js"></script>
 <script src="/js/showTicketCard.js"></script>
