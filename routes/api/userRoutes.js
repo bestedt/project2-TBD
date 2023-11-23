@@ -35,15 +35,6 @@ router.post('/login', async (req, res) => {
       req.session.username = userData.username;
       req.session.loggedIn = true;
       res.json({ message: 'You are now logged in!' });
-      req.session.cookie
-      res.render('homepage', {        
-        loggedIn: req.session.loggedIn,
-        is_manager: req.session.is_manager,
-        is_superintendent: req.session.is_superintendent,
-        user_id: req.session.user_id,
-        username: req.session.username,
-      });
-
      });
 
   } catch (err) {
