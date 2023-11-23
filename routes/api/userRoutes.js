@@ -8,6 +8,7 @@ const { Op } = require('sequelize');
 
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
+  console.log(email, password)
   try {
    
     const userData = await User.findOne({ where: { email:email } });
@@ -18,7 +19,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const validPassword = await userData.checkPassword(req.body.password);
+    const validPassword = await userData.checkPassword(password);
 
     if (!validPassword) {
       res

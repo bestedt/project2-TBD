@@ -10,7 +10,10 @@ router.get('/manager', async (req, res) => {
         const ticketsData = await Ticket.findAll({
             include: [
                 { model: User, as: 'creator' }, 
-                { model: User, as: 'doner' }]
+                { model: User, as: 'doner' }],
+            order: [
+                    ['created_at', 'DESC'],
+                ],
         });
         const tickets = ticketsData.map((ticket) => ticket.get({ plain: true }));
         res.status(200).json(tickets);

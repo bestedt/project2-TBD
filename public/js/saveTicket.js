@@ -3,12 +3,15 @@ async function createBtnHandler(event) {
     const roomno = document.querySelector('#roomno').value.trim();
     const title = document.querySelector('#title').value.trim() + ` at room ${roomno}`;
     const content = document.querySelector('#content').value.trim();
+    const status = 'created'
+    const userIdElement = document.querySelector('[data-user-id]');
+    const creator_id = userIdElement.dataset.userId;
 
     if (title && content) {
         try {
             const response = await fetch('/api/tickets/', {
               method: 'POST',
-              body: JSON.stringify({ title, content }),
+              body: JSON.stringify({ title, content, status, creator_id }),
               headers: { 'Content-Type': 'application/json' },
             });
             if (response.ok) {
