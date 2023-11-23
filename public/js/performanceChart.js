@@ -16,8 +16,8 @@ fetch(`/api/data/serviceQuality`)
     // draw pie chart
     const data = {
         labels: [
-          'meet',
-          'miss',
+          'done in 24hours',
+          'missed',
         ],
         datasets: [{
           label: 'service quality',
