@@ -4,7 +4,16 @@ require('dotenv').config();
 let sequelize;
 
 if (process.env.JAWSDB_URL) {
-  sequelize = new Sequelize(process.env.JAWSDB_URL);
+  sequelize = new Sequelize(process.env.JAWSDB_URL, {
+    dialectOptions: {
+      typeCast: function (field, next) { // for reading from database
+        if (field.type === 'DATETIME') {
+          return field.string()
+        }
+          return next()
+        },
+    },
+  });
 } else {
   sequelize = new Sequelize(
     process.env.DB_NAME,
