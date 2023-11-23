@@ -23,7 +23,7 @@ if (process.env.JAWSDB_URL) {
           },
           
       },
-      //timezone: "-5:00",
+      timezone: "+0:00",
     }
   );
 }
