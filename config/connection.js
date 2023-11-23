@@ -3,8 +3,6 @@ require('dotenv').config();
 
 let sequelize;
 
-'mysql://k0y7eazmr4hqbvi8:vd1ytqr4lwx1j7fr@ro2padgkirvcf55m.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/bxvs2c4trvdafk7e'
-
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(
     process.env.JAWSDB_URL, 

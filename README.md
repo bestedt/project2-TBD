@@ -23,8 +23,21 @@ so that people can easily maintain and track a apartment buildings issues
 - Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
 
 ## Screen Shots
-![Screenshot 2023-11-21 200535](https://github.com/bestedt/purpleturtle-Appartment-Management/assets/139821441/c5f7deb7-b433-4e46-9225-1ddbb4672482)
+![screenshot1](./assets/screenshot.jpg)
 
-![Screenshot 2023-11-21 200520](https://github.com/bestedt/purpleturtle-Appartment-Management/assets/139821441/0c2c7647-976c-4074-af28-d02f565b8773)
+![screeshot2](./assets/screenshot2.jpg)
 
 ## Deployed Link
+<https://atms-8bf7a9e2d4f1.herokuapp.com/>
+
+## instruction
+### Installation
+`npm install`
+### seeds data
+`npm run seeds`
+### start application
+`npm start`
+### deploy to heroku
+`git push heroku main`
+### seeds data on heroku
+`heroku run npm run seeds`
