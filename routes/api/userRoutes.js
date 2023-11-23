@@ -28,7 +28,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    req.session.save(async () => {
+    await req.session.save(async () => {
       req.session.is_manager = await userData.isManager();
       req.session.is_superintendent = await userData.isSuperintendent();
       req.session.user_id = userData.id;
