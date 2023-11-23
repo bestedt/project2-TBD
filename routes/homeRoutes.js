@@ -74,6 +74,7 @@ router.get('/newTicket', withAuth, (req, res) => {
   const username = req.session.username;
   res.render('newticket', {
     loggedIn: req.session.loggedIn,
+    user_id: req.session.user_id,
     username,
   });
 });

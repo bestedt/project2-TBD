@@ -7,7 +7,7 @@ fetch(`/api/data/serviceQuality`)
     // set percent show on screen
     const percentSpan = document.getElementById('serviceQualityPercent');
     percentSpan.textContent = `  ${serviceData.percent}%  `;
-    if (serviceData.percent > 80) {
+    if (serviceData.percent >= 80) {
         percentSpan.className = 'text-success';
     } else {
         percentSpan.className = 'text-danger'

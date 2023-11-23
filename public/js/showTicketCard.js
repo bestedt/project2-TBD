@@ -14,6 +14,8 @@ for (let c of cards) {
         case "closed":
             backgroundColor = 'text-bg-secondary';
             break;
+        default:
+            backgroundColor = 'text-bg-primary';
     }
     c.classList.add(backgroundColor);
 }
