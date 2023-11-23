@@ -30,7 +30,7 @@ router.get('/superintendent/:id', async (req, res) => {
             where: {
                 [Op.or]: [
                   {doner_id: user_id},
-                  {status_id: "1"}, // created tickets
+                  {status: "created"}, // created tickets
                 ]
             },
             include: [
@@ -75,23 +75,6 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// Get tickets by status
-router.get('/status/:statusId', async (req, res) => {
-    try {
-        const ticketsData = await Ticket.findAll({
-            where: {
-                status_id: req.params.statusId,
-            },
-            include: [
-                { model: User, as: 'creator' }, 
-                { model: User, as: 'doner' }]
-        });
-        const tickets = ticketsData.map((ticket) => ticket.get({ plain: true }));
-        res.status(200).json(tickets);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
 
 // Post, create a new ticket
 router.post('/', (req, res) => {
