@@ -74,9 +74,6 @@ router.post('/createaccount', async (req, res) => {
       return res.status(400).json({ error: 'All fields are required' });
     }
 
-    // Hash the password
-    const hashedPassword = await bcrypt.hash(password, 10);
-
     // Checking if the user already exists
     const existingUser = await User.findOne({
       where: {
@@ -96,7 +93,7 @@ router.post('/createaccount', async (req, res) => {
       user_type: user_type,
       username: username,
       email: email,
-      password: hashedPassword,
+      password: password,
     });
 // return success message
     res.status(201).json({ message: 'User account created successfully', user: newUser });
